@@ -1,0 +1,69 @@
+{
+  "name": "iPhone Price Alert MCP",
+  "version": "1.0.0",
+  "type": "stdio",
+  "command": "python",
+  "args": ["mcp_server.py"],
+  "tools": [
+    {
+      "name": "get_latest_prices",
+      "description": "Get latest iPhone prices from all tracked retailers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_database_stats",
+      "description": "Get database statistics including total prices, alerts, and retailers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_price_history",
+      "description": "Get recent price history with optional limit",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Number of records to retrieve",
+            "default": 20
+          }
+        }
+      }
+    },
+    {
+      "name": "get_recent_alerts",
+      "description": "Get recent price alerts",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Number of alerts to retrieve",
+            "default": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "get_15day_lows",
+      "description": "Get 15-day low prices by retailer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "export_to_csv",
+      "description": "Export price data to CSV files",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}
