@@ -1,0 +1,46 @@
+product: "iPhone 17 Pro 256GB"
+
+retailers:
+  - amazon
+  - amazon_india
+
+# Check interval in minutes
+check_interval: 30
+
+# Alert threshold: trigger when price <= 15-day low
+alert_threshold_percentage: 0  # 0 means equal to or below 15-day low
+
+# Database settings
+database:
+  path: "data/prices.db"
+  cleanup_days: 30
+
+# Alert settings
+alerts:
+  enabled: true
+  # Alert cooldown in minutes (prevent duplicate alerts)
+  cooldown_minutes: 120
+  
+  # Alert handlers
+  handlers:
+    console:
+      enabled: true
+    
+    email:
+      enabled: false  # Set to true to enable
+      smtp_server: "smtp.gmail.com"
+      smtp_port: 465
+      sender_email: "your-email@gmail.com"
+      sender_password: "your-app-password"  # Use Gmail app password
+      recipient_email: "alert-recipient@email.com"
+    
+    webhook:
+      enabled: false  # Set to true to enable
+      url: "https://your-webhook-url.com/alert"
+
+# Logging settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "logs/price_alert.log"
+  max_file_size_mb: 10
+  backup_count: 5
